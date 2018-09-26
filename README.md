@@ -13,12 +13,30 @@ lsyncd::rsync { 'myawesomereplication':
 
 Or via Hiera:
 ```yaml
+lsyncd::settings:
+  logfile: '"/var/log/lsyncd.log"'
+  statusFile: '"/var/log/lsyncd.status"'
+  statusInterval: 1
+  maxProcesses: 1
+  insist: 1
+
 lsyncd::rsync:
-  myawesomereplication:
-    source: /tmp/source
-    target: /tmp/target
+  myawesomereplication-rsync:
+    source: /usr/local/source
+    target: /usr/local/target
     options:
       archive: true
+
+lsyncd::rsyncssh:
+  myawesomereplication-rsyncssh:
+    source: /usr/local/source
+    targetdir: /usr/local/target
+    delete: true
+    delay: 0
+    host: lsyncpup2.convectix.com
+    options:
+      archive: true
+      compress: true
 ```
 
 # Notes
