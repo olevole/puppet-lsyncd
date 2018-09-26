@@ -3,6 +3,8 @@ sync {
   default.rsync,
   source = "<%= @source %>",
   target = "<%= @target %>",
+  delete = <%= @delete %>,
+  delay = <%= @delay %>,
   rsync = {
 <% @options.each do |key, val| -%>
       <%= key %> = <%= val %>,
