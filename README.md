@@ -33,7 +33,7 @@ lsyncd::rsyncssh:
     targetdir: /usr/local/target
     delete: true
     delay: 0
-    host: lsyncpup2.convectix.com
+    host: target-hostname
     options:
       archive: true
       compress: true
