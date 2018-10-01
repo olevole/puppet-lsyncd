@@ -7,6 +7,9 @@
   "source": "https://github.com/olevole/puppet-lsyncd",
   "project_page": "https://forge.puppetlabs.com/olevole/lsyncd",
   "issues_url": "https://github.com/olevole/puppet-lsyncd/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
   "tags": [
     "lsyncd",
     "rsync"
@@ -57,6 +60,5 @@
         "16.04"
       ]
     }
-  ],
-  "data_provider": "hiera",
+  ]
 }
