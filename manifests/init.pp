@@ -1,13 +1,14 @@
 class lsyncd (
-    $package_ensure   = 'present',
-    $service_manage   = true,
-    $config_dir       = $lsyncd::params::config_dir,
-    $config_file      = $lsyncd::params::config_file,
-    $rc_config_file   = $lsyncd::params::rc_config_file,
-    $rc_config_tmpl   = $lsyncd::params::rc_config_tmpl,
-    $settings         = $lsyncd::params::settings,
-    $rsync            = {},
-    $rsyncssh         = {},
+    $package_ensure       = 'present',
+    $rsync_package_ensure = 'latest',
+    $service_manage       = true,
+    $config_dir           = $lsyncd::params::config_dir,
+    $config_file          = $lsyncd::params::config_file,
+    $rc_config_file       = $lsyncd::params::rc_config_file,
+    $rc_config_tmpl       = $lsyncd::params::rc_config_tmpl,
+    $settings             = $lsyncd::params::settings,
+    $rsync                = {},
+    $rsyncssh             = {},
 ) inherits lsyncd::params {
 
   file { [$config_dir, "${config_dir}/sync.d"]:
@@ -39,7 +40,7 @@ class lsyncd (
     provider => $lsyncd::params::package_provider,
   }
 
-  ensure_resource('package', 'rsync', {'ensure' => 'installed'})
+  ensure_resource('package', 'rsync', {'ensure' => "$rsync_package_ensure" })
 
   if $service_manage {
     $service_notify_real = Service[$lsyncd::params::service_name]
