@@ -1,6 +1,6 @@
 {
   "name": "olevole-lsyncd",
-  "version": "0.1",
+  "version": "0.1.0",
   "author": "Oleg Ginzburg",
   "summary": "Yet another lsyncd module",
   "license": "BSD",
